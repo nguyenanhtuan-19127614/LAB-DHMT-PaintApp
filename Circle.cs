@@ -1,0 +1,92 @@
+﻿using System;
+using SharpGL;
+using System.Diagnostics;
+using System.Drawing;
+
+namespace _19127614_Lab01
+{
+    class Circle : Shape
+    {
+        public Circle(Point start, Point end) : base(start, end)
+        {
+            this.radius = Convert.ToInt32(Math.Sqrt(Math.Pow((end.X - start.X), 2) + Math.Pow((end.Y - start.Y), 2)));
+
+        }
+        public override bool Draw(OpenGL gl)
+        {
+            if (this.startPoint == this.endPoint)
+            {
+                return false;
+            }
+
+            // Thuật toán midpoind-----------------------------
+            int x = 0, y = radius;
+            int P = 1 - radius;
+            gl.Begin(OpenGL.GL_POINTS);
+            //1/4 thứ nhất (trên phải)
+            gl.Vertex(this.startPoint.X + x, this.startPoint.Y + y);
+            gl.Vertex(this.startPoint.X + y, this.startPoint.Y + x);
+            //1/4 thứ hai (dưới phải)
+            gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
+            gl.Vertex(this.startPoint.X + y, this.startPoint.Y + -x);
+            //1/4 thứ ba (dưới trái)
+            gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
+            gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + -x);
+            //1/4 thứ bốn (trên trái)
+            gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
+            gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + x);
+            gl.End();
+
+            while (x < y)
+            {
+                if (P < 0)
+                {
+                    x += 1;
+                    P = P + 2 * x + 1;
+                }
+                else
+                {
+                    x += 1;
+                    y -= 1;
+                    P = P + 2 * (x - y) + 1;
+                }
+                gl.Begin(OpenGL.GL_POINTS);
+                //1/4 thứ nhất (trên phải)
+                gl.Vertex(this.startPoint.X + x, this.startPoint.Y + y);
+                gl.Vertex(this.startPoint.X + y, this.startPoint.Y + x);
+                //1/4 thứ hai (dưới phải)
+                gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
+                gl.Vertex(this.startPoint.X + y, this.startPoint.Y + -x);
+                //1/4 thứ ba (dưới trái)
+                gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
+                gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + -x);
+                //1/4 thứ bốn (trên trái)
+                gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
+                gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + x);
+
+                gl.End();
+            }
+
+            //Phương trình tham số đường tròn (vẽ nhiều thì hơi lag, nhưng vẽ đẹp hơn)---------------------------
+            /*
+            int x,y;
+            for (double i = 0.0; i < 360.0; i += 0.1)
+
+            {
+                double angle = i * System.Math.PI / 180;
+
+                x = (int)(this.startPoint.X+radius * System.Math.Cos(angle));
+
+                y = (int)(this.startPoint.Y+radius * System.Math.Sin(angle));
+                
+                gl.Begin(OpenGL.GL_POINTS);
+                gl.Vertex(x, y);
+                gl.End();                
+            }
+            */
+
+
+            return true;
+        }
+    }
+}
