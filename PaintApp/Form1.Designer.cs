@@ -43,8 +43,15 @@ namespace _19127614_Lab01
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.openglControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openglControl1
@@ -56,7 +63,7 @@ namespace _19127614_Lab01
             this.openglControl1.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
             this.openglControl1.RenderContextType = SharpGL.RenderContextType.DIBSection;
             this.openglControl1.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
-            this.openglControl1.Size = new System.Drawing.Size(869, 415);
+            this.openglControl1.Size = new System.Drawing.Size(1078, 500);
             this.openglControl1.TabIndex = 0;
             this.openglControl1.OpenGLInitialized += new System.EventHandler(this.openGLControl_OpenGLInitialized);
             this.openglControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
@@ -69,7 +76,7 @@ namespace _19127614_Lab01
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(788, 37);
+            this.button1.Location = new System.Drawing.Point(1003, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -78,7 +85,7 @@ namespace _19127614_Lab01
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(788, 8);
+            this.numericUpDown1.Location = new System.Drawing.Point(1003, 8);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(75, 23);
             this.numericUpDown1.TabIndex = 1;
@@ -87,7 +94,7 @@ namespace _19127614_Lab01
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(716, 37);
+            this.button2.Location = new System.Drawing.Point(931, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -134,7 +141,7 @@ namespace _19127614_Lab01
             this.labelPixelSize.AutoSize = true;
             this.labelPixelSize.BackColor = System.Drawing.SystemColors.ControlLight;
             this.labelPixelSize.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelPixelSize.Location = new System.Drawing.Point(719, 12);
+            this.labelPixelSize.Location = new System.Drawing.Point(934, 12);
             this.labelPixelSize.Name = "labelPixelSize";
             this.labelPixelSize.Size = new System.Drawing.Size(63, 15);
             this.labelPixelSize.TabIndex = 6;
@@ -195,11 +202,83 @@ namespace _19127614_Lab01
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // button11
+            // 
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button11.Location = new System.Drawing.Point(685, 12);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(79, 54);
+            this.button11.TabIndex = 12;
+            this.button11.Text = "Polygon";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button12.Location = new System.Drawing.Point(850, 37);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Select";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button15);
+            this.panel1.Controls.Add(this.button14);
+            this.panel1.Controls.Add(this.button13);
+            this.panel1.Location = new System.Drawing.Point(850, 8);
+            this.panel1.MaximumSize = new System.Drawing.Size(75, 70);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 23);
+            this.panel1.TabIndex = 14;
+            // 
+            // button15
+            // 
+            this.button15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button15.Location = new System.Drawing.Point(0, 46);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 23);
+            this.button15.TabIndex = 2;
+            this.button15.Text = "FloodFill";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            this.button14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button14.Location = new System.Drawing.Point(0, 23);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 23);
+            this.button14.TabIndex = 1;
+            this.button14.Text = "ScanLine";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
+            // 
+            // button13
+            // 
+            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button13.Location = new System.Drawing.Point(0, 0);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.TabIndex = 0;
+            this.button13.Text = "Fill";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 498);
+            this.ClientSize = new System.Drawing.Size(1096, 591);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button12);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -217,6 +296,7 @@ namespace _19127614_Lab01
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.openglControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +318,12 @@ namespace _19127614_Lab01
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button13;
     }
 }
 

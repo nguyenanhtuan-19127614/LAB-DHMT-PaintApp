@@ -26,15 +26,23 @@ namespace _19127614_Lab01
             //1/4 thứ nhất (trên phải)
             gl.Vertex(this.startPoint.X + x, this.startPoint.Y + y);
             gl.Vertex(this.startPoint.X + y, this.startPoint.Y + x);
+            this.wall[this.startPoint.X + x, this.startPoint.Y + y] = true;
+            this.wall[this.startPoint.X + y, this.startPoint.Y + x] = true;
             //1/4 thứ hai (dưới phải)
             gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
             gl.Vertex(this.startPoint.X + y, this.startPoint.Y + -x);
+            this.wall[this.startPoint.X + x, this.startPoint.Y + -y] = true;
+            this.wall[this.startPoint.X + y, this.startPoint.Y + -x] = true;
             //1/4 thứ ba (dưới trái)
             gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
             gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + -x);
+            this.wall[this.startPoint.X + -x, this.startPoint.Y + -y] = true;
+            this.wall[this.startPoint.X + -y, this.startPoint.Y + -x] = true;
             //1/4 thứ bốn (trên trái)
             gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
             gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + x);
+            this.wall[this.startPoint.X + -x, this.startPoint.Y + y] = true;
+            this.wall[this.startPoint.X + -y, this.startPoint.Y + x] = true;
             gl.End();
 
             while (x < y)
@@ -54,16 +62,23 @@ namespace _19127614_Lab01
                 //1/4 thứ nhất (trên phải)
                 gl.Vertex(this.startPoint.X + x, this.startPoint.Y + y);
                 gl.Vertex(this.startPoint.X + y, this.startPoint.Y + x);
+                this.wall[this.startPoint.X + x, this.startPoint.Y + y] = true;
+                this.wall[this.startPoint.X + y, this.startPoint.Y + x] = true;
                 //1/4 thứ hai (dưới phải)
                 gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + y, this.startPoint.Y + -x);
+                this.wall[this.startPoint.X + x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + y, Math.Abs(this.startPoint.Y + -x)] = true;
                 //1/4 thứ ba (dưới trái)
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + -x);
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + -y, Math.Abs(this.startPoint.Y + -x)] = true;
                 //1/4 thứ bốn (trên trái)
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
                 gl.Vertex(this.startPoint.X + -y, this.startPoint.Y + x);
-
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + y] = true;
+                this.wall[this.startPoint.X + -y, this.startPoint.Y + x] = true;
                 gl.End();
             }
 
@@ -87,6 +102,24 @@ namespace _19127614_Lab01
 
 
             return true;
+        }
+        public override bool isInside(Point clickPoint)
+        {
+            int dx = Math.Abs(clickPoint.X - this.startPoint.X);
+            if (dx > radius)
+            {
+                return false;
+            }
+            int dy = Math.Abs(clickPoint.Y - this.startPoint.Y);
+            if (dy > radius)
+            {
+                return false;
+            }
+            if (dx + dy <= radius) 
+            {
+                return true;
+            }
+            return (dx * dx + dy * dy <= radius * radius);
         }
     }
 }

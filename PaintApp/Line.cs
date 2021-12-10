@@ -8,6 +8,7 @@ namespace _19127614_Lab01
     class Line : Shape
     {
         public Line(Point start, Point end) : base(start, end) { }
+
         public override bool Draw(OpenGL gl)
         {
             if (this.startPoint == this.endPoint)
@@ -34,6 +35,7 @@ namespace _19127614_Lab01
             y = this.startPoint.Y;
             gl.Begin(OpenGL.GL_POINTS);
             gl.Vertex(x, y);
+            this.wall[x, y] = true;
             gl.End();
             if (deltaX > deltaY)
             {
@@ -52,6 +54,7 @@ namespace _19127614_Lab01
                     }
                     gl.Begin(OpenGL.GL_POINTS);
                     gl.Vertex(x, y);
+                    this.wall[x, y] = true;
                     gl.End();
 
                 }
@@ -73,6 +76,7 @@ namespace _19127614_Lab01
                     }
                     gl.Begin(OpenGL.GL_POINTS);
                     gl.Vertex(x, y);
+                    this.wall[x, y] = true;
                     gl.End();
                 }
             }

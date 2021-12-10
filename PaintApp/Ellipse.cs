@@ -35,6 +35,10 @@ namespace _19127614_Lab01
             gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
             gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
             gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
+            this.wall[this.startPoint.X + x, this.startPoint.Y + y] = true;
+            this.wall[this.startPoint.X + x, this.startPoint.Y + -y] = true;
+            this.wall[this.startPoint.X + -x, this.startPoint.Y + -y]=true;
+            this.wall[this.startPoint.X + -x, this.startPoint.Y + y] = true;
             gl.End();
             while(deltaX < deltaY)
             {
@@ -56,6 +60,10 @@ namespace _19127614_Lab01
                 gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
+                this.wall[this.startPoint.X + x, this.startPoint.Y + y] = true;
+                this.wall[this.startPoint.X + x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + y] = true;
                 gl.End();
             }
             
@@ -84,6 +92,10 @@ namespace _19127614_Lab01
                 gl.Vertex(this.startPoint.X + x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + -y);
                 gl.Vertex(this.startPoint.X + -x, this.startPoint.Y + y);
+                this.wall[this.startPoint.X + x, this.startPoint.Y + y] = true;
+                this.wall[this.startPoint.X + x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + -y] = true;
+                this.wall[this.startPoint.X + -x, this.startPoint.Y + y] = true;
                 gl.End();
             }
             // sử dụng Phương trình tham số của ellipse----------------------------------------------------------------------------------------------------------
@@ -102,6 +114,13 @@ namespace _19127614_Lab01
                 gl.End();
             }*/
             return true;
+        }
+        public override bool isInside(Point clickPoint)
+        {
+            double dx = Math.Pow(clickPoint.X - this.startPoint.X,2)/Math.Pow(this.radiusX,2);
+            double dy = Math.Pow(clickPoint.Y - this.startPoint.Y, 2) / Math.Pow(this.radiusY, 2);
+            
+            return (dx+dy <= 1);
         }
     }
 }
